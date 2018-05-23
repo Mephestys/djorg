@@ -105,6 +105,3 @@ venv.bak/
 
 # vscode
 /.vscode
-
-# security
-/djorg/secret_settings.py
