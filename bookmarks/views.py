@@ -1,3 +1,5 @@
+#pylint: disable=E1101
+
 from django.shortcuts import render
 from .models import Bookmark, PersonalBookmark
 from .forms import BookmarkForm
