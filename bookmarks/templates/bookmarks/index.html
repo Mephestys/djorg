@@ -1,33 +1,37 @@
 <h1>Bookmarks</h1>
 
-{% if bookmarks %}
 Bookmarks:
 
 <ol>
   {% for bookmark in bookmarks %}
   <li><a href="{{ bookmark.url }}">{{ bookmark.name }}</a></li>
+  {% empty %}
+    No public bookmarks found.
   {% endfor %}
 </ol>
 
-{% else %}
-No bookmarks found.
-{% endif %}
-
-{% if personal_bookmarks %}
+{% if request.user.is_authenticated %}
 
 Personal Bookmarks:
 
 <ol>
   {% for bookmark in personal_bookmarks %}
   <li><a href="{{ bookmark.url }}">{{ bookmark.name }}</a></li>
+  {% empty %}
+    No personal bookmarks found.
   {% endfor %}
 </ol>
 
-{% else %}
-No personal bookmarks found.
+<h2>New Personal Bookmark</h2>
+<form method="POST" class="bookmark-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Save</button>
+</form>
+
 {% endif %}
 
-<h2>New Bookmark</h2>
+<h2>New Public Bookmark</h2>
 <form method="POST" class="bookmark-form">
   {% csrf_token %}
   {{ form.as_p }}
