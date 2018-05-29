@@ -14,9 +14,10 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
     fields = ('title', 'content')
 
 class NoteViewSet(viewsets.ModelViewSet):
-  # TODO Prevent anonymous users from seeing other users notes
+  # Prevent anonymous users from seeing other users notes
   def get_queryset(self):
-    pass
+    user = self.request.user
+    return Note.objects.filter(user=user)
   
   serializer_class = NoteSerializer
   queryset = Note.objects.all()
