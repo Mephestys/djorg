@@ -11,6 +11,7 @@ dj-database-url = "*"
 whitenoise = "*"
 python-decouple = "*"
 djangorestframework = "*"
+django-taggit-serializer = "*"
 
 [dev-packages]
 pylint = "*"

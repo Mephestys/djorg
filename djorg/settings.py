@@ -34,6 +34,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 INSTALLED_APPS = [
     'taggit',
+    'taggit_serializer',
     'bookmarks',
     'notes',
     'rest_framework',
