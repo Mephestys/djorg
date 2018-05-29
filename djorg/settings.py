@@ -33,6 +33,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    'taggit',
     'bookmarks',
     'notes',
     'rest_framework',
@@ -140,3 +141,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ]
 }
+
+# Django-Taggit
+TAGGIT_CASE_INSENSITIVE = True
