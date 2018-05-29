@@ -21,7 +21,7 @@ class Note(models.Model):
   tags = TaggableManager(help_text="", through=UUIDTaggedNote, blank=True)
 
   def __str__(self):
-    return self.title
+    return "{0} / {1}".format(self.user, self.title)
 
   ######## Stretch Goals ########
   # Sharing notes between users
