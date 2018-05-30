@@ -33,11 +33,10 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    'taggit',
-    'taggit_serializer',
     'bookmarks',
     'notes',
     'rest_framework',
+    'graphene_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -145,9 +144,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-# Django-Taggit
-TAGGIT_CASE_INSENSITIVE = True
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -165,3 +161,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Graphene
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'
+}
