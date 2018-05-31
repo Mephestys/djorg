@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'notes',
     'rest_framework',
     'graphene_django',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -166,3 +168,6 @@ AUTH_PASSWORD_VALIDATORS = [
 GRAPHENE = {
     'SCHEMA': 'notes.schema.schema'
 }
+
+# CORS
+CORS_ORIGIN_ALLOW_ALL = True

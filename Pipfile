@@ -12,6 +12,7 @@ whitenoise = "*"
 python-decouple = "*"
 djangorestframework = "*"
 graphene-django = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 pylint = "*"
