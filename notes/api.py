@@ -19,6 +19,8 @@ class NoteViewSet(viewsets.ModelViewSet):
   def get_queryset(self):
     user = self.request.user
 
+    #if settings.DEBUG:
+    #  return Note.objects.all()
     if user.is_anonymous:
       return Note.objects.none()
     else:
