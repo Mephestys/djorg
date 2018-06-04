@@ -4,7 +4,10 @@ class Note extends React.Component {
   render() {
     return (
       <div>
-        Hey
+        {this.props.title}
+        <br />
+        {this.props.content}
+        <hr />
       </div>
     )
   }
