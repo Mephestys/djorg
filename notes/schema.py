@@ -28,7 +28,9 @@ class Query(graphene.ObjectType):
     title = kwargs.get('title')
     id = kwargs.get('id')
 
-    if title is not None:
+    if id is not None:
+      return NoteModel.objects.filter(id=id)
+    elif title is not None:
       return NoteModel.objects.filter(title=title)
     else:
       return None
