@@ -1,5 +1,7 @@
 from django.conf import settings
 from graphene_django import DjangoObjectType
+import base64
+import uuid
 import graphene
 from .models import Note as NoteModel
 
@@ -29,6 +31,7 @@ class Query(graphene.ObjectType):
     id = kwargs.get('id')
 
     if id is not None:
+      id = base64.b64decode(id).decode().split(':')[1]
       return NoteModel.objects.filter(id=id)
     elif title is not None:
       return NoteModel.objects.filter(title=title)
